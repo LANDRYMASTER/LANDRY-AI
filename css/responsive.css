@@ -1,0 +1,242 @@
+/* ============================================================
+   LANDRY — Responsive Breakpoints
+   Mobile-first → Tablet → Desktop
+   ============================================================ */
+
+/* ── Small Mobile (< 360px) ────────────────────────────────── */
+
+@media (max-width: 359px) {
+  :root {
+    --text-3xl: 1.5rem;
+    --text-2xl: 1.25rem;
+    --avatar-size-lg: 110px;
+    --avatar-size-md: 64px;
+  }
+
+  .screen-welcome,
+  .screen-access,
+  .screen-consent,
+  .screen-loading {
+    padding: var(--space-lg);
+  }
+
+  .welcome-subtitle {
+    font-size: var(--text-base);
+    max-width: 240px;
+  }
+
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .suggestion-chip {
+    padding: var(--space-md);
+  }
+}
+
+/* ── Mobile (360px — 479px) ────────────────────────────────── */
+
+@media (min-width: 360px) and (max-width: 479px) {
+  .suggestions-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .suggestion-chip {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ── Tablet (480px — 768px) ────────────────────────────────── */
+
+@media (min-width: 480px) and (max-width: 768px) {
+  body {
+    background: var(--color-bg-secondary);
+  }
+
+  .app {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .suggestions-grid {
+    max-width: 360px;
+  }
+}
+
+/* ── Desktop (> 768px) ─────────────────────────────────────── */
+
+@media (min-width: 769px) {
+  :root {
+    --max-width: 420px;
+  }
+
+  body {
+    background: var(--color-bg-secondary);
+  }
+
+  .app {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Theme toggle positioning for desktop card */
+  .theme-toggle {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+  }
+
+  .suggestions-grid {
+    max-width: 340px;
+  }
+
+  .suggestion-chip {
+    padding: var(--space-md) var(--space-base);
+  }
+}
+
+/* ── Large Desktop (> 1200px) ──────────────────────────────── */
+
+@media (min-width: 1200px) {
+  body {
+    background: 
+      var(--gradient-glow),
+      var(--color-bg-secondary);
+  }
+}
+
+/* ── Height Adjustments ────────────────────────────────────── */
+
+/* Short screens — reduce spacing */
+@media (max-height: 600px) {
+  :root {
+    --avatar-size-lg: 100px;
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+  }
+
+  .welcome-content {
+    gap: var(--space-md);
+  }
+
+  .screen-welcome::before {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Very tall screens — more breathing room */
+@media (min-height: 900px) {
+  .welcome-content {
+    gap: var(--space-xl);
+  }
+}
+
+/* ── Landscape Mobile ──────────────────────────────────────── */
+
+@media (max-height: 480px) and (orientation: landscape) {
+  :root {
+    --avatar-size-lg: 80px;
+    --avatar-size-md: 56px;
+    --header-height: 56px;
+  }
+
+  .screen-welcome,
+  .screen-access,
+  .screen-consent {
+    padding: var(--space-base);
+  }
+
+  .welcome-greeting {
+    font-size: var(--text-xl);
+  }
+
+  .welcome-subtitle {
+    font-size: var(--text-sm);
+  }
+
+  .chat-header {
+    padding: var(--space-sm) var(--space-base);
+  }
+
+  .chat-messages {
+    padding: var(--space-md);
+  }
+
+  .chat-input-container {
+    padding: var(--space-sm) var(--space-base);
+  }
+}
+
+/* ── Touch Device Optimizations ────────────────────────────── */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .header-action-btn,
+  .input-action-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-send {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Disable hover effects on touch */
+  .suggestion-chip:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-primary:hover {
+    transform: none;
+  }
+
+  /* Active states instead */
+  .suggestion-chip:active {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:active {
+    opacity: 0.9;
+  }
+}
+
+/* ── Print Styles ──────────────────────────────────────────── */
+
+@media print {
+  .chat-input-container,
+  .theme-toggle,
+  .chat-header-actions {
+    display: none;
+  }
+
+  .chat-messages {
+    overflow: visible;
+    height: auto;
+  }
+
+  .message-user .message-bubble {
+    background: #f0f0f0;
+    color: #111;
+  }
+}
+
+/* ── Safe Area (Notched Phones) ────────────────────────────── */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .chat-input-container {
+    padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom));
+  }
+
+  .screen-welcome,
+  .screen-access,
+  .screen-consent,
+  .screen-loading {
+    padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
+    padding-top: calc(var(--space-xl) + env(safe-area-inset-top));
+  }
+}

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="LANDRY — Ton compagnon émotionnel. Un espace d'écoute confidentiel et bienveillant pour ton bien-être psychologique en Côte d'Ivoire.">
+  <meta name="theme-color" content="#7B61FF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="LANDRY">
+
+  <title>LANDRY — Ton compagnon émotionnel</title>
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%237B61FF'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Inter,sans-serif' font-weight='700' font-size='18' fill='white'%3EL%3C/text%3E%3C/svg%3E">
+</head>
+
+<body>
+  <!-- Skip to content — Accessibility -->
+  <a href="#main-content" class="skip-link" id="skip-link">Aller au contenu principal</a>
+
+  <!-- Theme Toggle -->
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Passer en mode sombre"
+  >
+    <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- ============================================================
+       Application Shell
+       ============================================================ -->
+  <main class="app" id="main-content" role="main">
+    <div class="screen-container">
+
+      <!-- ========================================================
+           SCREEN 1 — Welcome
+           ======================================================== -->
+      <section
+        class="screen screen-welcome"
+        id="screen-welcome"
+        aria-hidden="true"
+        aria-label="Écran d'accueil"
+      >
+        <div class="welcome-content">
+          <!-- Avatar -->
+          <div class="avatar-container">
+            <img
+              src="assets/avatar-landry.png"
+              alt="LANDRY, ton compagnon émotionnel"
+              class="avatar avatar-lg anim-glow-pulse"
+              width="140"
+              height="140"
+            >
+          </div>
+
+          <!-- Greeting -->
+          <h1 class="welcome-greeting">Bonjour 👋</h1>
+          <p class="welcome-name">Je suis LANDRY.</p>
+          <p class="welcome-subtitle">Je suis là pour t'écouter.</p>
+
+          <!-- Start Button -->
+          <button
+            class="btn-primary ripple-container"
+            id="btn-start"
+            type="button"
+            aria-label="Commencer la conversation"
+          >
+            Commencer
+          </button>
+
+          <!-- Secure Badge -->
+          <div class="secure-badge" aria-label="Confidentiel et sécurisé">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>Confidentiel &amp; sécurisé</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           SCREEN 2 — Access Code
+           ======================================================== -->
+      <section
+        class="screen screen-access"
+        id="screen-access"
+        aria-hidden="true"
+        aria-label="Écran de code d'accès"
+      >
+        <div class="access-content">
+          <!-- Avatar -->
+          <div class="avatar-container anim-fade-in-up">
+            <img
+              src="assets/avatar-landry.png"
+              alt="LANDRY"
+              class="avatar avatar-md"
+              width="80"
+              height="80"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Title -->
+          <h2 class="screen-title anim-fade-in-up delay-1">Bienvenue.</h2>
+          <p class="screen-subtitle anim-fade-in-up delay-2">Entre ton code d'accès.</p>
+
+          <!-- Input -->
+          <div class="input-group anim-fade-in-up delay-3">
+            <label for="access-code" class="sr-only">Code d'accès</label>
+            <input
+              type="text"
+              id="access-code"
+              class="input-field focus-ring"
+              placeholder="••••••••"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              maxlength="20"
+              aria-describedby="access-error"
+            >
+            <p class="input-error" id="access-error" role="alert" aria-live="polite"></p>
+          </div>
+
+          <!-- Buttons -->
+          <div class="nav-buttons anim-fade-in-up delay-4">
+            <button
+              class="btn-primary ripple-container"
+              id="btn-access"
+              type="button"
+              aria-label="Continuer avec le code d'accès"
+            >
+              Continuer
+            </button>
+
+            <button class="btn-back" id="btn-back-access" type="button" aria-label="Retour">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+              </svg>
+              Retour
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           SCREEN 3 — Consent
+           ======================================================== -->
+      <section
+        class="screen screen-consent"
+        id="screen-consent"
+        aria-hidden="true"
+        aria-label="Écran de consentement"
+      >
+        <div class="consent-content">
+          <!-- Avatar -->
+          <div class="avatar-container anim-fade-in-up">
+            <img
+              src="assets/avatar-landry.png"
+              alt="LANDRY"
+              class="avatar avatar-md"
+              width="80"
+              height="80"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Title -->
+          <h2 class="screen-title anim-fade-in-up delay-1">Avant de commencer</h2>
+
+          <!-- Consent Text -->
+          <div class="consent-text anim-fade-in-up delay-2">
+            <p>LANDRY est un compagnon émotionnel propulsé par l'intelligence artificielle. Il est conçu pour t'écouter et t'accompagner, mais <strong>ne remplace pas un professionnel de santé mentale</strong>.</p>
+            <br>
+            <p>Tes conversations restent <strong>confidentielles</strong> et sont traitées dans le respect de ta vie privée. Aucune donnée personnelle n'est partagée avec des tiers.</p>
+          </div>
+
+          <!-- Checkbox -->
+          <label class="checkbox-group anim-fade-in-up delay-3" for="consent-checkbox">
+            <div class="checkbox-custom">
+              <input
+                type="checkbox"
+                id="consent-checkbox"
+                aria-label="J'ai lu et j'accepte les conditions d'utilisation"
+              >
+              <span class="checkmark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+            </div>
+            <span class="checkbox-label">J'ai lu et j'accepte les conditions d'utilisation et la politique de confidentialité.</span>
+          </label>
+
+          <!-- Accept Button -->
+          <div class="nav-buttons anim-fade-in-up delay-4">
+            <button
+              class="btn-primary ripple-container"
+              id="btn-accept"
+              type="button"
+              disabled
+              aria-label="Accepter et continuer"
+            >
+              Accepter &amp; Continuer
+            </button>
+
+            <button class="btn-back" id="btn-back-consent" type="button" aria-label="Retour">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+              </svg>
+              Retour
+            </button>
+          </div>
+
+          <!-- Links -->
+          <div class="consent-links anim-fade-in-up delay-5">
+            <a href="#conditions" aria-label="Conditions d'utilisation">Conditions</a>
+            <a href="#privacy" aria-label="Politique de confidentialité">Confidentialité</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           SCREEN 4 — Loading
+           ======================================================== -->
+      <section
+        class="screen screen-loading"
+        id="screen-loading"
+        aria-hidden="true"
+        aria-label="Chargement"
+        role="status"
+      >
+        <div class="loading-content">
+          <!-- Animated Avatar -->
+          <div class="avatar-container anim-breathing">
+            <img
+              src="assets/avatar-landry.png"
+              alt="LANDRY prépare la conversation"
+              class="avatar avatar-lg anim-glow-pulse"
+              width="140"
+              height="140"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Spinner -->
+          <div class="spinner" aria-hidden="true"></div>
+
+          <!-- Rotating Messages -->
+          <div class="loading-messages" id="loading-text" aria-live="polite">
+            <span class="loading-message active">Je prépare notre conversation...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           SCREEN 5 — Chat Interface
+           ======================================================== -->
+      <section
+        class="screen screen-chat"
+        id="screen-chat"
+        aria-hidden="true"
+        aria-label="Conversation avec LANDRY"
+      >
+        <!-- Chat Header -->
+        <header class="chat-header" role="banner">
+          <div class="chat-header-info">
+            <div class="chat-header-avatar">
+              <img
+                src="assets/avatar-landry.png"
+                alt="LANDRY"
+                class="avatar avatar-sm"
+                width="44"
+                height="44"
+                loading="lazy"
+              >
+              <span class="online-dot" aria-hidden="true"></span>
+            </div>
+            <div class="chat-header-text">
+              <h2 class="chat-header-name">LANDRY</h2>
+              <span class="chat-header-status">
+                <span aria-hidden="true">●</span> En ligne
+              </span>
+            </div>
+          </div>
+
+          <div class="chat-header-actions">
+            <!-- More Options (Future) -->
+            <button class="header-action-btn" type="button" aria-label="Plus d'options" id="btn-more">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="1"/>
+                <circle cx="12" cy="5" r="1"/>
+                <circle cx="12" cy="19" r="1"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Messages + Suggestions Area -->
+        <div class="chat-messages" id="chat-messages" role="list" aria-label="Messages de la conversation">
+
+          <!-- Suggestions (Empty State) -->
+          <div class="suggestions-container" id="suggestions">
+            <span class="suggestions-label">Comment te sens-tu aujourd'hui ?</span>
+            <div class="suggestions-grid">
+              <button
+                class="suggestion-chip hover-lift"
+                type="button"
+                data-message="Je me sens stressé"
+                aria-label="Dire : Je me sens stressé"
+              >
+                <span class="suggestion-icon" aria-hidden="true">😰</span>
+                <span>Je me sens stressé</span>
+              </button>
+
+              <button
+                class="suggestion-chip hover-lift"
+                type="button"
+                data-message="J'ai besoin de parler"
+                aria-label="Dire : J'ai besoin de parler"
+              >
+                <span class="suggestion-icon" aria-hidden="true">💬</span>
+                <span>J'ai besoin de parler</span>
+              </button>
+
+              <button
+                class="suggestion-chip hover-lift"
+                type="button"
+                data-message="Je suis triste"
+                aria-label="Dire : Je suis triste"
+              >
+                <span class="suggestion-icon" aria-hidden="true">😢</span>
+                <span>Je suis triste</span>
+              </button>
+
+              <button
+                class="suggestion-chip hover-lift"
+                type="button"
+                data-message="Je veux juste discuter"
+                aria-label="Dire : Je veux juste discuter"
+              >
+                <span class="suggestion-icon" aria-hidden="true">🌿</span>
+                <span>Je veux juste discuter</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-container">
+          <div class="chat-input-wrapper">
+            <!-- Attachment (Future) -->
+            <button class="input-action-btn" type="button" aria-label="Joindre un fichier" id="btn-attach">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+            </button>
+
+            <label for="chat-input" class="sr-only">Écris ton message</label>
+            <textarea
+              id="chat-input"
+              class="chat-input"
+              placeholder="Écris ton message..."
+              rows="1"
+              aria-label="Champ de message"
+              maxlength="1000"
+            ></textarea>
+
+            <div class="input-actions">
+              <!-- Voice (Future) -->
+              <button class="input-action-btn" type="button" aria-label="Message vocal" id="btn-voice">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                  <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+              </button>
+
+              <!-- Send -->
+              <button class="btn-send" id="btn-send" type="button" aria-label="Envoyer le message" aria-disabled="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Character Counter -->
+          <div class="char-counter" id="char-counter" aria-live="polite" style="opacity: 0;"></div>
+        </div>
+      </section>
+
+    </div><!-- /.screen-container -->
+  </main><!-- /.app -->
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/screens.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
